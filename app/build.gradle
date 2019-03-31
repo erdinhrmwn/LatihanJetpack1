@@ -43,4 +43,19 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //library room
+    def roomVersion = "1.1.1"
+    implementation "android.arch.persistence.room:runtime:$roomVersion"
+    kapt "android.arch.persistence.room:compiler:$roomVersion"
+
+    //lifecycle component
+    def lifecycleVersion = "1.1.1"
+    implementation "android.arch.lifecycle:extensions:$lifecycleVersion"
+
+    //navigation library
+    def navVersion = "1.0.0-alpha04"
+    implementation "android.arch.navigation:navigation-fragment-ktx:$navVersion"
+    implementation "android.arch.navigation:navigation-ui-ktx:$navVersion"
+
 }
