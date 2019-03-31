@@ -6,11 +6,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.example.latihanjetpack1.R
 import com.example.latihanjetpack1.StartApp
 import com.example.latihanjetpack1.data.data_model.People
 import com.example.latihanjetpack1.views.views_add.AddPeopleAdapter
+import com.example.latihanjetpack1.views.views_details.DetailsPeopleAdapter
 import kotlinx.android.synthetic.main.fragmet_for_list_people.*
 
 class ListPeopleFragment : Fragment(), ListPeopleAdapter.OnItemClickListener {
@@ -22,14 +22,15 @@ class ListPeopleFragment : Fragment(), ListPeopleAdapter.OnItemClickListener {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         addFab.setOnClickListener {
-//            Toast.makeText(activity.applicationContext, "Test Click FAB", Toast.LENGTH_SHORT).show()
             val intent = Intent(activity.applicationContext, AddPeopleAdapter::class.java)
             startActivity(intent)
         }
     }
 
     override fun onItemClick(people: People, itemView: View) {
-        Toast.makeText(activity.applicationContext, "Test Click Contact List", Toast.LENGTH_SHORT).show()
+        val intent = Intent(activity.applicationContext, DetailsPeopleAdapter::class.java)
+        intent.putExtra(getString(R.string.people_id), people.id)
+        startActivity(intent)
     }
 
     private fun  populatePeopleList(peopleList : List<People>){
@@ -41,5 +42,4 @@ class ListPeopleFragment : Fragment(), ListPeopleAdapter.OnItemClickListener {
         val people = (activity?.application as StartApp).getPeopleRepo().getAllPeople()
         populatePeopleList(people)
     }
-
 }

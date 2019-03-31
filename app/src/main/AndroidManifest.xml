@@ -16,5 +16,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".views.views_add.AddPeopleAdapter"/>
+        <activity android:name=".views.views_details.DetailsPeopleAdapter"/>
     </application>
 </manifest>
