@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/navigation_graph" app:startDestination="@id/listPeopleFragment">
+
+    <fragment android:id="@+id/listPeopleFragment"
+              android:name="com.example.latihanjetpack1.views.views_list.ListPeopleFragment"
+              android:label="ListPeopleFragment">
+        <action android:id="@+id/action_listPeopleFragment_to_addPeopleFragment"
+                app:destination="@id/addPeopleFragment"/>
+        <action android:id="@+id/action_listPeopleFragment_to_detailsPeopleFragment"
+                app:destination="@id/detailsPeopleFragment"/>
+    </fragment>
+    <fragment android:id="@+id/addPeopleFragment"
+              android:name="com.example.latihanjetpack1.views.views_add.AddPeopleFragment"
+              android:label="AddPeopleFragment"/>
+    <fragment android:id="@+id/detailsPeopleFragment"
+              android:name="com.example.latihanjetpack1.views.views_details.DetailsPeopleFragment"
+              android:label="DetailsPeopleFragment"/>
+</navigation>

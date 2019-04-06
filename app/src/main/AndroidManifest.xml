@@ -15,7 +15,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".views.views_add.AddPeopleAdapter"/>
-        <activity android:name=".views.views_details.DetailsPeopleAdapter"/>
+        <!--<activity android:name=".views.views_add.AddPeopleAdapter"/>-->
+        <!--<activity android:name=".views.views_details.DetailsPeopleAdapter"/>-->
     </application>
 </manifest>

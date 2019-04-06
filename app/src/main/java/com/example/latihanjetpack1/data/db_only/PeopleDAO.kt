@@ -23,5 +23,5 @@ interface PeopleDAO {
 
     // query select by id
     @Query("select * from people where id = :id")
-    fun find(id: Int): People
+    fun find(id: Int): LiveData<People>
 }

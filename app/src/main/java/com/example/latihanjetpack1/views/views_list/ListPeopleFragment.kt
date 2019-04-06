@@ -2,16 +2,14 @@ package com.example.latihanjetpack1.views.views_list
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
-import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import com.example.latihanjetpack1.R
 import com.example.latihanjetpack1.data.data_model.People
-import com.example.latihanjetpack1.views.views_add.AddPeopleAdapter
-import com.example.latihanjetpack1.views.views_details.DetailsPeopleAdapter
 import kotlinx.android.synthetic.main.fragmet_for_list_people.*
 
 class ListPeopleFragment : Fragment(), ListPeopleAdapter.OnItemClickListener {
@@ -30,8 +28,9 @@ class ListPeopleFragment : Fragment(), ListPeopleAdapter.OnItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         addFab.setOnClickListener {
-            val intent = Intent(context, AddPeopleAdapter::class.java)
-            startActivity(intent)
+            //            val intent = Intent(context, AddPeopleAdapter::class.java)
+//            startActivity(intent)
+            view.findNavController().navigate(R.id.action_listPeopleFragment_to_addPeopleFragment)
         }
 
         viewModel.getPeopleList().observe(this, Observer<List<People>> { peoples ->
@@ -40,9 +39,13 @@ class ListPeopleFragment : Fragment(), ListPeopleAdapter.OnItemClickListener {
     }
 
     override fun onItemClick(people: People, itemView: View) {
-        val intent = Intent(context, DetailsPeopleAdapter::class.java)
-        intent.putExtra(getString(R.string.people_id), people.id)
-        startActivity(intent)
+//        val intent = Intent(context, DetailsPeopleAdapter::class.java)
+//        intent.putExtra(getString(R.string.people_id), people.id)
+//        startActivity(intent)
+        val detailBundle = Bundle().apply {
+            putInt(getString(R.string.people_id), people.id)
+        }
+        view?.findNavController()?.navigate(R.id.action_listPeopleFragment_to_detailsPeopleFragment, detailBundle)
     }
 
     private fun populatePeopleList(peopleList: List<People>) {
